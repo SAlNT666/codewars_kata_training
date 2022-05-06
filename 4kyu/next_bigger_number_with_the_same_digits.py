@@ -1,5 +1,4 @@
-import itertools
-
+# import itertools
 
 # САМЫЙ ТУПОЙ ПОДХОД EVER
 # def next_bigger(n):
@@ -13,33 +12,15 @@ import itertools
 #     return result
 
 def next_bigger(n):
-    n = [int(d) for d in str(n)][::-1]
-
-    result = -1
-    for i in range(len(n)):
-        new_min = None
-
-        try:
+    n = list(str(n))[::-1]
+    for i in range(1, len(n)):
+        if n[i] < n[i - 1]:
             new_min = min(filter(lambda x: x > n[i], n[:i]))
-        except ValueError:
-            pass
-
-        if new_min:
-
-            print('n:', n)
-            print('i:', i, 'i2:', -n[::-1].index(new_min) - 1)
-            print('v:', n[i], 'v2:', n[-n[::-1].index(new_min) - 1])
-
-            print('n:', n)
-            print(n[i], n[-n[::-1].index(new_min) - 1])
-
-            n[-n[::-1].index(new_min) - 1], n[i] = n[i], n[-n[::-1].index(new_min) - 1]
-
-            print('n:', n)
-
+            n[n.index(new_min)], n[i] = n[i], new_min
+            n[:i] = sorted(n[:i], reverse=True)
             result = int(''.join(str(d) for d in n[::-1]))
-            break
-    return result
+            return result
+    return -1
 
 
-print(next_bigger(414))
+print(next_bigger(2017))

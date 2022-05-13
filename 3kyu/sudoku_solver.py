@@ -5,10 +5,13 @@ digits = {1, 2, 3, 4, 5, 6, 7, 8, 9}
 
 
 def check_puzzle(puzzle, point):
+    global counter
     p_i, p_j = point
     p_v = puzzle[p_i][p_j]
-    if [puzzle[i][p_j] for i in range(9)].count(p_v) > 1 or [puzzle[p_i][j] for j in range(9)].count(p_v) > 1:
+
+    if [puzzle[p_i][j] for j in range(9)].count(p_v) > 1 or [puzzle[i][p_j] for i in range(9)].count(p_v) > 1:
         return False
+
     p_square = []
     l_border = (p_i // 3) * 3
     r_border = l_border + 3
@@ -33,25 +36,6 @@ def get_zeros(puzzle):
     return result
 
 
-# def solve_sudoku(puzzle, new_positions, new_values, counter=0):
-#     for row in puzzle:
-#         print(*row)
-#     print('-----------------')
-#     if counter == len(new_positions):
-#         return puzzle
-#     for v in range(new_values[counter] + 1, 10):
-#         puzzle[new_positions[counter][0]][new_positions[counter][1]] = v
-#         if check_puzzle(puzzle, (new_positions[counter][0], new_positions[counter][1])):
-#             new_values[counter] = v
-#             counter += 1
-#             return solve_sudoku(puzzle, new_positions, new_values, counter)
-#     else:
-#         puzzle[new_positions[counter][0]][new_positions[counter][1]] = 0
-#         new_values[counter] = 0
-#         counter -= 1
-#         new_values[counter] += 1
-#         return solve_sudoku(puzzle, new_positions, new_values, counter)
-
 puzzle = [[5, 3, 0, 0, 7, 0, 0, 0, 0],
           [6, 0, 0, 1, 9, 5, 0, 0, 0],
           [0, 9, 8, 0, 0, 0, 0, 6, 0],
@@ -62,25 +46,11 @@ puzzle = [[5, 3, 0, 0, 7, 0, 0, 0, 0],
           [0, 0, 0, 4, 1, 9, 0, 0, 5],
           [0, 0, 0, 0, 8, 0, 0, 7, 9]]
 
-new_positions = get_zeros(puzzle)
 
-new_values = [0] * len(new_positions)
-
-counter = 0
-
-
-def solve_sudoku():
-    global counter
-    # for row in puzzle:
-    #     print(*row)
-    # print('-----------------')
-
-
+def solve_sudoku(puzzle, new_positions, new_values, counter):
     for v in range(new_values[counter], 10):
         puzzle[new_positions[counter][0]][new_positions[counter][1]] = v
         if check_puzzle(puzzle, (new_positions[counter][0], new_positions[counter][1])):
-            if new_values[:3] == [4, 6, 8]:
-                print(new_values[:4])
             new_values[counter] = v
             counter += 1
             break
@@ -89,20 +59,27 @@ def solve_sudoku():
     else:
         for i in range(counter, len(new_values)):
             new_values[i] = 0
+        for p in range(counter, len(new_positions)):
+            puzzle[new_positions[p][0]][new_positions[p][1]] = 0
         counter -= 1
         new_values[counter] += 1
 
     if counter == len(new_positions) - 1:
-        return puzzle
+        puzzle[new_positions[counter][0]][new_positions[counter][1]] = list(digits - set(puzzle[8]))[0]
+        return True, puzzle, new_positions, new_values, counter
     else:
-        return False
+        return False, puzzle, new_positions, new_values, counter
 
 
 def sudoku(puzzle):
+    new_positions = get_zeros(puzzle)
+    new_values = [0] * len(new_positions)
+    counter = 0
     while True:
-        res = solve_sudoku()
-        if res: return res
+        res, puzzle, new_positions, new_values, counter = solve_sudoku(puzzle, new_positions, new_values, counter)
+        if res:
+            return puzzle
 
 
-print(sudoku(puzzle))
-
+for row in sudoku(puzzle):
+    print(*row)

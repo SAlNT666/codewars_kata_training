@@ -1,15 +1,4 @@
-# import itertools
-
-# САМЫЙ ТУПОЙ ПОДХОД EVER
-# def next_bigger(n):
-#     difference = 9999999999
-#     result = -1
-#     for num in (int(''.join(str(d) for d in i)) for i in itertools.permutations([int(i) for i in str(n)], len(str(n)))):
-#         new_difference = abs(num - n)
-#         if num > n and new_difference < difference:
-#             result = num
-#             difference = new_difference
-#     return result
+# https://www.codewars.com/kata/55983863da40caa2c900004e
 
 def next_bigger(n):
     n = list(str(n))[::-1]

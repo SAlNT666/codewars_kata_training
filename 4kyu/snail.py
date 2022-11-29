@@ -1,3 +1,5 @@
+# https://www.codewars.com/kata/521c2db8ddc89b9b7a0000c1
+
 def snail(snail_map):
     result = []
 
@@ -47,13 +49,8 @@ def snail(snail_map):
     return result
 
 
-array = [[]]
-
+array = [[1, 2, 3],
+         [4, 5, 6],
+         [7, 8, 9]]
 
 print(snail(array))
-
-
-# import timeit
-#
-#
-# print(timeit.timeit("spiralize(10)", setup="from __main__ import spiralize"))

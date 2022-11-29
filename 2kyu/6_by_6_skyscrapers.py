@@ -1,3 +1,4 @@
+# https://www.codewars.com/kata/5679d5a3f2272011d700000d
 from itertools import permutations
 
 

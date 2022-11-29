@@ -1,3 +1,5 @@
+# https://www.codewars.com/kata/5518a860a73e708c0a000027
+
 def last_digit(lst):
     n = 1
     for x in reversed(lst):

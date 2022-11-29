@@ -1,3 +1,5 @@
+# https://www.codewars.com/kata/58c5577d61aefcf3ff000081
+
 def encrypt(n, size):
     r = 2 * (n - 1)
     return sorted((i % r if i % r < n else r - i % r, i) for i in range(size))

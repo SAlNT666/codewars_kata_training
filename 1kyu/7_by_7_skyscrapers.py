@@ -1,3 +1,4 @@
+# https://www.codewars.com/kata/5917a2205ffc30ec3a0000a8
 from itertools import permutations, product
 from copy import deepcopy
 

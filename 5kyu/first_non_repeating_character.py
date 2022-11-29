@@ -1,3 +1,5 @@
+# https://www.codewars.com/kata/52bc74d4ac05d0945d00054e
+
 def first_non_repeating_letter(string):
     string_lower = string.lower()
     for i, s in enumerate(string_lower):

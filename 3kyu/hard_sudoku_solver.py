@@ -1,3 +1,5 @@
+# https://www.codewars.com/kata/55171d87236c880cea0004c6
+
 def solve(puzzle):
 
     def guess_at():
@@ -45,25 +47,15 @@ def solve(puzzle):
     return ans
 
 
-if __name__ == '__main__':
-    puzzle = [[9, 0, 0, 0, 8, 0, 0, 0, 1],
-              [0, 0, 0, 4, 0, 6, 0, 0, 0],
-              [0, 0, 5, 0, 7, 0, 3, 0, 0],
-              [0, 6, 0, 0, 0, 0, 0, 4, 0],
-              [4, 0, 1, 0, 6, 0, 5, 0, 8],
-              [0, 9, 0, 0, 0, 0, 0, 2, 0],
-              [0, 0, 7, 0, 3, 0, 2, 0, 0],
-              [0, 0, 0, 7, 0, 5, 0, 0, 0],
-              [1, 0, 0, 0, 4, 0, 0, 0, 7]]
+puzzle = [[9, 0, 0, 0, 8, 0, 0, 0, 1],
+          [0, 0, 0, 4, 0, 6, 0, 0, 0],
+          [0, 0, 5, 0, 7, 0, 3, 0, 0],
+          [0, 6, 0, 0, 0, 0, 0, 4, 0],
+          [4, 0, 1, 0, 6, 0, 5, 0, 8],
+          [0, 9, 0, 0, 0, 0, 0, 2, 0],
+          [0, 0, 7, 0, 3, 0, 2, 0, 0],
+          [0, 0, 0, 7, 0, 5, 0, 0, 0],
+          [1, 0, 0, 0, 4, 0, 0, 0, 7]]
 
-    for row in solve(puzzle):
-        print(*row)
-
-    # from datetime import datetime
-    # start = datetime.now()
-    # for i in range(1000):
-    #     solve(puzzle)
-    # print(datetime.now() - start)
-
-    # import timeit
-    # print(timeit.timeit("solve(puzzle)", setup="from __main__ import solve, puzzle"))
+for row in solve(puzzle):
+    print(*row)

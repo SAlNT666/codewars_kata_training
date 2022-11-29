@@ -1,3 +1,5 @@
+# https://www.codewars.com/kata/534e01fbbb17187c7e0000c6
+
 def spiralize(size):
     i = 1
     j = 0
@@ -42,10 +44,5 @@ def spiralize(size):
     return [[a[i][j] for j in range(1, size+1)] for i in range(1, size+1)]
 
 
-print(spiralize(5))
-
-
-# import timeit
-#
-#
-# print(timeit.timeit("spiralize(10)", setup="from __main__ import spiralize"))
+for row in spiralize(5):
+    print(*row)

@@ -1,3 +1,5 @@
+# https://www.codewars.com/kata/5296bc77afba8baa690002d7
+
 def sudoku(puzzle):
     def filter_grid_sets(i, j, v):
         nonlocal counts
@@ -25,27 +27,15 @@ def sudoku(puzzle):
     return ans
 
 
-if __name__ == '__main__':
-    puzzle = [[5, 3, 0, 0, 7, 0, 0, 0, 0],
-              [6, 0, 0, 1, 9, 5, 0, 0, 0],
-              [0, 9, 8, 0, 0, 0, 0, 6, 0],
-              [8, 0, 0, 0, 6, 0, 0, 0, 3],
-              [4, 0, 0, 8, 0, 3, 0, 0, 1],
-              [7, 0, 0, 0, 2, 0, 0, 0, 6],
-              [0, 6, 0, 0, 0, 0, 2, 8, 0],
-              [0, 0, 0, 4, 1, 9, 0, 0, 5],
-              [0, 0, 0, 0, 8, 0, 0, 7, 9]]
+puzzle = [[5, 3, 0, 0, 7, 0, 0, 0, 0],
+          [6, 0, 0, 1, 9, 5, 0, 0, 0],
+          [0, 9, 8, 0, 0, 0, 0, 6, 0],
+          [8, 0, 0, 0, 6, 0, 0, 0, 3],
+          [4, 0, 0, 8, 0, 3, 0, 0, 1],
+          [7, 0, 0, 0, 2, 0, 0, 0, 6],
+          [0, 6, 0, 0, 0, 0, 2, 8, 0],
+          [0, 0, 0, 4, 1, 9, 0, 0, 5],
+          [0, 0, 0, 0, 8, 0, 0, 7, 9]]
 
-
-    for row in sudoku(puzzle):
-        print(*row)
-
-    from datetime import datetime
-    start = datetime.now()
-    for i in range(1000):
-        sudoku(puzzle)
-    print(datetime.now() - start)
-
-    # import timeit
-    # print(timeit.timeit("solve(puzzle)", setup="from __main__ import solve, puzzle"))
-
+for row in sudoku(puzzle):
+    print(*row)

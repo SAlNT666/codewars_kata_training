@@ -1,3 +1,5 @@
+# https://www.codewars.com/kata/529bf0e9bdf7657179000008
+
 def valid_solution(board):
     nums = set(range(1, 10))
     right_rows = (set(r) == nums for r in board)

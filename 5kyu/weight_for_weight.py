@@ -1,3 +1,5 @@
+# https://www.codewars.com/kata/55c6126177c9441a570000cc
+
 def order_weight(strng):
     def get_weight(n):
         w, int_n = 0, int(n)

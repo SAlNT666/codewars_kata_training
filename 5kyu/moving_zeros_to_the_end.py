@@ -1,3 +1,5 @@
+# https://www.codewars.com/kata/52597aa56021e91c93000cb0
+
 def move_zeros(lst):
     res = [i for i in lst if i != 0]
     return res + [0] * (len(lst) - len(res))

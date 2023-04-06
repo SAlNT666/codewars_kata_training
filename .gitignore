@@ -1,0 +1,7 @@
+.idea/
+python/.idea/
+go/.idea/
+python/test.py
+go/test.go
+python/mesure_time.py
+go/mesureTime.go

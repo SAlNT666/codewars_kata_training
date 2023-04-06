@@ -1,31 +1,22 @@
+// https://www.codewars.com/kata/5a6663e9fd56cb5ab800008b
+
 package main
 
 import "fmt"
 
-func main() {
-	fmt.Println(CalculateYears(10))
+func CalculateYears(years int) (result [3]int) {
+	switch years {
+	case 1:
+		result = [3]int{1, 15, 15}
+	case 2:
+		result = [3]int{2, 24, 24}
+	default:
+		result = [3]int{years, 24 + 4*(years-2), 24 + 5*(years-2)}
+	}
+	return result
 }
 
-func CalculateYears(years int) (result [3]int) {
-	var catYears, dogYears, zeroInt, firstInt int
-	var zero, first bool
-	zero = years == 0
-	if zero {
-		zeroInt = 1
-	}
-	catYears += 15 * (1 - zeroInt)
-
-	first = years == 1
-	if first {
-		firstInt = 1
-	}
-	catYears += 9 * (1 - firstInt)
-	dogYears = catYears
-
-	if years > 2 {
-		catYears += 4 * (years - 2)
-		dogYears += 5 * (years - 2)
-	}
-
-	return [3]int{years, catYears, dogYears}
+func main() {
+	fmt.Println(CalculateYears(5), "[5 36 39]")
+	fmt.Println(CalculateYears(10), "[10 56 64]")
 }

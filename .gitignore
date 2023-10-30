@@ -1,4 +1,6 @@
 .idea/
 */.idea/
 */test.py
+*/test.go
 */mesure_time.py
+*/mesure_time.go
